@@ -1,0 +1,13 @@
+Για να δημιουργήσουμε καινούριο Recorder:
+
+1) Στη συνάρτηση Recorder.Create προσθέτουμε το παρακάτω:
+(παράδειγμα)
+case RecorderFileType.Thermostar:
+  return new ThermostarRecorder(recorderPath);
+2) Στη συνάρτηση GetRecorderFileType προσθέτουμε το παρακάτω
+else if (CANRecorder.IsCANRecorder(filePath))
+  return RecorderFileType.CAN;
+2) Δημιουργούμε την κλάση ThermostarRecorder και κάνουμε override τις κλάσεις.
+
+
+experiment export no - tipota den ginetai export (oute ta recorders)

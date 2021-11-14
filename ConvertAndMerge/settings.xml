@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<settings>
+  <global>
+    <timeformat>yyyy-MM-dd HH:mm:ss.fff</timeformat>
+    <base_directory>.\</base_directory>
+  </global>
+  <experiment_defaults>
+    <timestep>0.1</timestep>
+    <export>yes</export>
+    <mergemode>keepall</mergemode>
+    <mergefilename>R_{index}_dd-MM-yy.txt</mergefilename>
+  </experiment_defaults>
+  <recorder_defaults>
+    <export>no</export>
+    <mergemode>crop</mergemode>
+    <interpolation>linear</interpolation>
+    <comment>MERGING 1 HZ WITH nearest ELSE linear (2 and 10 Hz)</comment>
+  </recorder_defaults>
+</settings>

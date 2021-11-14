@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<merger>
+  <settings>
+    <global>
+    </global>
+    <experiment_defaults>
+      <timestep>1</timestep>
+      <export>yes</export>
+      <mergemode>keepall</mergemode>
+    </experiment_defaults>
+    <recorder_defaults>
+      <export>no</export>
+      <mergemode>crop</mergemode>
+    </recorder_defaults>
+  </settings>
+  <experiments>
+  {1}  
+  </experiments>
+</merger>

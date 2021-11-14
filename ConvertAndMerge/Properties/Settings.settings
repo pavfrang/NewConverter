@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ConvertMerge.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ShouldExportExperiment" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ExperimentTimeStepInSeconds" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ExperimentMergeMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">KeepAll</Value>
+    </Setting>
+    <Setting Name="RecorderMergeMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Crop</Value>
+    </Setting>
+    <Setting Name="ShouldExportRecorder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AbsoluteTimeFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yyyy-MM-dd HH:mm:ss.fff</Value>
+    </Setting>
+    <Setting Name="BaseDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\</Value>
+    </Setting>
+    <Setting Name="InterpolationMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Linear</Value>
+    </Setting>
+    <Setting Name="ReorderVariables" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ExportToPuma" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

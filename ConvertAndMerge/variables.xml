@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="variables.xsl"?>
+<variables>
+  <variable name="T_CHAN1" translatedname="T1" group="Temperatures" type="double" columnindex="3" columnletter="C" />
+  <variable name="T_CHAN2" translatedname="T2" group="Temperatures" type="double" columnindex="4" columnletter="D" />
+  <variable name="T_CHAN3" translatedname="T3" group="Temperatures" type="double" columnindex="5" columnletter="E" />
+  <variable name="T_CHAN4" translatedname="T4" group="Temperatures" type="double" columnindex="6" columnletter="F" />
+  <variable name="T_CHAN5" translatedname="T5" group="Temperatures" type="double" columnindex="7" columnletter="G" />
+  <variable name="T_CHAN6" translatedname="T6" group="Temperatures" type="double" columnindex="8" columnletter="H" />
+  <variable name="T_CHAN7" translatedname="T7" group="Temperatures" type="double" columnindex="9" columnletter="I" />
+  <variable name="T_CHAN8" translatedname="T8" group="Temperatures" type="double" columnindex="10" columnletter="J" />
+  <variable name="T_CHAN9" translatedname="T9" group="Temperatures" type="double" columnindex="11" columnletter="K" />
+  <variable name="T_CHAN10" translatedname="T10" group="Temperatures" type="double" columnindex="12" columnletter="L" />
+  <variable name="T_CHAN11" translatedname="T11" group="Temperatures" type="double" columnindex="13" columnletter="M" />
+  <variable name="T_CHAN12" translatedname="T12" group="Temperatures" type="double" columnindex="14" columnletter="N" />
+  <variable name="T_CHAN13" translatedname="T13" group="Temperatures" type="double" columnindex="15" columnletter="O" />
+  <variable name="T_CHAN14" translatedname="T14" group="Temperatures" type="double" columnindex="16" columnletter="P" />
+  <variable name="T_CHAN15" translatedname="T15" group="Temperatures" type="double" columnindex="17" columnletter="Q" />
+  <variable name="T_CHAN16" translatedname="T16" group="Temperatures" type="double" columnindex="18" columnletter="R" />
+  <variable name="T_CHAN17" translatedname="T17" group="Temperatures" type="double" columnindex="19" columnletter="S" />
+  <variable name="T_CHAN18" translatedname="T18" group="Temperatures" type="double" columnindex="20" columnletter="T" />
+  <variable name="T_CHAN19" translatedname="T19" group="Temperatures" type="double" columnindex="21" columnletter="U" />
+  <variable name="T_CHAN20" translatedname="T20" group="Temperatures" type="double" columnindex="22" columnletter="V" />
+  <variable name="T_CHAN21" translatedname="T21" group="Temperatures" type="double" columnindex="23" columnletter="W" />
+  <variable name="T_CHAN22" translatedname="T22" group="Temperatures" type="double" columnindex="24" columnletter="X" />
+  <variable name="T_CHAN23" translatedname="T23" group="Temperatures" type="double" columnindex="25" columnletter="Y" />
+  <variable name="T_CHAN24" translatedname="T24" group="Temperatures" type="double" columnindex="26" columnletter="Z" />
+  <variable name="T_CHAN25" translatedname="T25" group="Temperatures" type="double" columnindex="27" columnletter="AA" />
+  <variable name="T_CHAN26" translatedname="T26" group="Temperatures" type="double" columnindex="28" columnletter="AB" />
+  <variable name="T_CHAN27" translatedname="T27" group="Temperatures" type="double" columnindex="29" columnletter="AC" />
+  <variable name="T_CHAN28" translatedname="T28" group="Temperatures" type="double" columnindex="30" columnletter="AD" />
+  <variable name="T_CHAN29" translatedname="T29" group="Temperatures" type="double" columnindex="31" columnletter="AE" />
+  <variable name="T_CHAN30" translatedname="T30" group="Temperatures" type="double" columnindex="32" columnletter="AF" />
+  <variable name="T_CHAN31" translatedname="T31" group="Temperatures" type="double" columnindex="33" columnletter="AG" />
+  <variable name="T_CHAN32" translatedname="T32" group="Temperatures" type="double" columnindex="34" columnletter="AH" />
+  <variable name="P_CHAN1" translatedname="P1" group="Pressures" type="double" columnindex="35" columnletter="AI" />
+  <variable name="P_CHAN2" translatedname="P2" group="Pressures" type="double" columnindex="36" columnletter="AJ" />
+  <variable name="P_CHAN3" translatedname="P3" group="Pressures" type="double" columnindex="37" columnletter="AK" />
+  <variable name="P_CHAN4" translatedname="P4" group="Pressures" type="double" columnindex="38" columnletter="AL" />
+  <variable name="P_CHAN5" translatedname="P5" group="Pressures" type="double" columnindex="39" columnletter="AM" />
+  <variable name="P_CHAN6" translatedname="P6" group="Pressures" type="double" columnindex="40" columnletter="AN" />
+  <variable name="EM_CO2_1" translatedname="AMA CO2" group="AMA Analyzer" type="double" columnindex="41" columnletter="AO" />
+  <variable name="EM_COH_1" translatedname="AMA CO High" group="AMA Analyzer" type="double" columnindex="42" columnletter="AP" />
+  <variable name="EM_COL_1" translatedname="AMA CO Low" group="AMA Analyzer" type="double" columnindex="43" columnletter="AQ" />
+  <variable name="EM_NO_1" translatedname="AMA NO" group="AMA Analyzer" type="double" columnindex="44" columnletter="AR" />
+  <variable name="EM_THC_1" translatedname="AMA HC" group="AMA Analyzer" type="double" columnindex="45" columnletter="AS" />
+  <variable name="AMAMODE" translatedname="AMA Mode (0-NO, 1-NOx)" group="AMA Analyzer" type="integer" columnindex="46" columnletter="AT" interpolation="nearest"/>
+  <variable name="AMAVC" translatedname="AMA Vanes Combination" group="AMA Analyzer" type="integer" columnindex="47" columnletter="AU" interpolation="nearest"/>
+  <variable name="ABB_N2O" translatedname="ABB AO2020 N2O" group="Analyzers" type="double" columnindex="48" columnletter="AV" />
+  <variable name="ABB_CO" translatedname="ABB AO2020 CO" group="Analyzers" type="double" columnindex="49" columnletter="AW" />
+  <variable name="ABB_SO2" translatedname="ABB AO2020 SO2" group="Analyzers" type="double" columnindex="50" columnletter="AX" />
+  <variable name="ABBCATV" translatedname="ABB Sample Flow Vane combination" group="Analyzers" type="integer" columnindex="51" columnletter="AY" interpolation="nearest"/>
+  <variable name="ABBAIRV" translatedname="ABB Cat Air Flow" group="Analyzers" type="integer" columnindex="52" columnletter="AZ" interpolation="nearest"/>
+  <variable name="ABB_NO" translatedname="ABB AO2020 NO" group="Analyzers" type="double" columnindex="53" columnletter="BA" />
+  <variable name="ABB_NO2" translatedname="ABB AO2020 NO2" group="Analyzers" type="double" columnindex="54" columnletter="BB" />
+  <variable name="ABB_NH3" translatedname="ABB AO2020 NH3" group="Analyzers" type="double" columnindex="55" columnletter="BC" />
+  <variable name="PG250_CO" translatedname="PG250 CO" group="Analyzers" type="double" columnindex="56" columnletter="BD" />
+  <variable name="PG250_NO" translatedname="PG250 NO" group="Analyzers" type="double" columnindex="57" columnletter="BE" />
+  <variable name="PG250CO2" translatedname="PG250 CO2" group="Analyzers" type="double" columnindex="58" columnletter="BF" />
+  <variable name="PG250SO2" translatedname="PG250 SO2" group="Analyzers" type="double" columnindex="59" columnletter="BG" />
+  <variable name="PG250_O2" translatedname="PG250 O2" group="Analyzers" type="double" columnindex="60" columnletter="BH" />
+  <variable name="VIA510F" translatedname="Horiba VIA510 CO" group="Analyzers" type="double" columnindex="61" columnletter="BI" />
+  <variable name="VI510CO2" translatedname="Horiba VIA510 CO2" group="Analyzers" type="double" columnindex="62" columnletter="BJ" />
+  <variable name="SIGNNOF" translatedname="Signal 4000 NO" group="Analyzers" type="double" columnindex="63" columnletter="BK" />
+  <variable name="SIGNALCO" translatedname="Signal 2000 CO" group="Analyzers" type="double" columnindex="64" columnletter="BL" />
+  <variable name="SIGNALO2" translatedname="Signal 8000M O2" group="Analyzers" type="double" columnindex="65" columnletter="BM" />
+  <variable name="SIGNALHC" translatedname="Signal 3000HM HC" group="Analyzers" type="double" columnindex="66" columnletter="BN" />
+  <variable name="SIGNALNO" translatedname="Signal 4000 NO/NOx" group="Analyzers" type="double" columnindex="67" columnletter="BO" />
+  <variable name="SIGNMODC" translatedname="Signal 4000 NO/NOx mode (0 NO, 1 NOx)" group="Analyzers" type="integer" columnindex="68" columnletter="BP" />
+  <variable name="FHC1" translatedname="HORIBA MEXA-1210FRF fHC Analyzer 1" group="Analyzers" type="double" columnindex="69" columnletter="BQ" />
+  <variable name="FHC2" translatedname="HORIBA MEXA-1210FRF fHC Analyzer 2" group="Analyzers" type="double" columnindex="70" columnletter="BR" />
+  <variable name="FNOX1" translatedname="Cambustion fNOx 400 1" group="Analyzers" type="double" columnindex="71" columnletter="BS" />
+  <variable name="FNOX2" translatedname="Cambustion fNOx 400 2" group="Analyzers" type="double" columnindex="72" columnletter="BT" />
+  <variable name="NOXANOX" translatedname="NOx sensor A NOx" group="Sensors" type="double" columnindex="73" columnletter="BU" />
+  <variable name="NOXAO2" translatedname="NOx sensor A O2" group="Sensors" type="double" columnindex="74" columnletter="BV" />
+  <variable name="NOXBNOX" translatedname="NOx sensor B NOx" group="Sensors" type="double" columnindex="75" columnletter="BW" />
+  <variable name="NOXBO2" translatedname="NOx sensor B O2" group="Sensors" type="double" columnindex="76" columnletter="BX" />
+  <variable name="NOXCNOX" translatedname="NOx sensor C NOx" group="Sensors" type="double" columnindex="77" columnletter="BY" />
+  <variable name="NOXCO2" translatedname="NOx sensor C O2" group="Sensors" type="double" columnindex="78" columnletter="BZ" />
+  <variable name="NOXDNOX" translatedname="NOx sensor D NOx" group="Sensors" type="double" columnindex="79" columnletter="CA" />
+  <variable name="NOXDO2" translatedname="NOx sensor D O2" group="Sensors" type="double" columnindex="80" columnletter="CB" />
+  <variable name="UEGO1" translatedname="UEGO1 O2" group="Sensors" type="double" columnindex="81" columnletter="CC" />
+  <variable name="UEGO2" translatedname="UEGO2 O2" group="Sensors" type="double" columnindex="82" columnletter="CD" />
+  <variable name="V" translatedname="Vane Combination" group="Vanes" type="integer" columnindex="83" columnletter="CE"  interpolation="nearest"/>
+  <variable name="FLOW4040" translatedname="TSI Flowmeter 4040" group="Flow controllers" type="double" columnindex="84" columnletter="CF" />
+  <variable name="FLOW4143" translatedname="TSI Flowmeter 4143" group="Flow controllers" type="double" columnindex="85" columnletter="CG" />
+  <variable name="MFCFLOWT" translatedname="MFC Target Flow N2 (slpm)" group="Flow controllers" type="double" columnindex="86" columnletter="CH" />
+  <variable name="MFCFLOWA" translatedname="MFC Actual Flow N2 (slpm)" group="Flow controllers" type="double" columnindex="87" columnletter="CI" />
+  <variable name="MFCFLOWC" translatedname="MFC Flow Corrected N2 (slpm)" group="Flow controllers" type="double" columnindex="88" columnletter="CJ" />
+  <variable name="MFC2FLWA" translatedname="MFC2 Target Flow N2 (slpm)" group="Flow controllers" type="double" columnindex="89" columnletter="CK" />
+  <variable name="MFC2FLWT" translatedname="MFC2 Actual Flow N2 (slpm)" group="Flow controllers" type="double" columnindex="90" columnletter="CL" />
+  <variable name="MFC3FLWA" translatedname="MFC3 Target Flow N2 (slpm)" group="Flow controllers" type="double" columnindex="91" columnletter="CM" />
+  <variable name="MFC3FLWT" translatedname="MFC3 Actual Flow N2 (slpm)" group="Flow controllers" type="double" columnindex="92" columnletter="CN" />
+  <variable name="MFC2FLAN" translatedname="MFC2 Actual Flow N2 (Nlpm)" group="Flow controllers" type="double" columnindex="93" columnletter="CO" />
+  <variable name="MFC2FLTN" translatedname="MFC2 Target Flow N2 (Nlpm)" group="Flow controllers" type="double" columnindex="94" columnletter="CP" />
+  <variable name="MFC3FLAN" translatedname="MFC3 Actual Flow N2 (Nlpm)" group="Flow controllers" type="double" columnindex="95" columnletter="CQ" />
+  <variable name="MFC3FLTN" translatedname="MFC3 Target Flow N2 (Nlpm)" group="Flow controllers" type="double" columnindex="96" columnletter="CR" />
+  <variable name="MFCFLAN" translatedname="MFC Actual Flow N2 (Nlpm)" group="Flow controllers" type="double" columnindex="97" columnletter="CS" />
+  <variable name="MFCFLTN" translatedname="MFC Target Flow N2 (Nlpm)" group="Flow controllers" type="double" columnindex="98" columnletter="CT" />
+  <variable name="INJMAIN" translatedname="Main Injection (ECU)" group="ECU" type="double" columnindex="99" columnletter="CU" />
+  <variable name="INJNORM2" translatedname="Normal Injection (ECU)" group="ECU" type="double" columnindex="100" columnletter="CV" />
+  <variable name="INJPILOT" translatedname="Pilot Injection (ECU)" group="ECU" type="double" columnindex="101" columnletter="CW" />
+  <variable name="INJPOSTE" translatedname="Post Injection Early (ECU)" group="ECU" type="double" columnindex="102" columnletter="CX" />
+  <variable name="INJPOSTL" translatedname="Post Injection Late (ECU)" group="ECU" type="double" columnindex="103" columnletter="CY" />
+  <variable name="INJTOT2" translatedname="Total Injection (ECU)" group="ECU" type="double" columnindex="104" columnletter="CZ" />
+  <variable name="P_AIR_IN" translatedname="Engine Inlet Air Pressure (ECU)" group="ECU" type="double" columnindex="105" columnletter="DA" />
+  <variable name="P_OIL" translatedname="Oil Pressure (Puma)" group="ECU" type="double" columnindex="106" columnletter="DB" />
+  <variable name="T_OIL" translatedname="Oil Temperature (Puma)" group="ECU" type="double" columnindex="107" columnletter="DC" />
+  <variable name="T_OILECU" translatedname="Oil Temperature (ECU)" group="ECU" type="double" columnindex="108" columnletter="DD" />
+  <variable name="TCOOLECU" translatedname="Coolant Temperature (ECU)" group="ECU" type="double" columnindex="109" columnletter="DE" />
+  <variable name="TWO" translatedname="Water Temperature Engine In (Puma)" group="ECU" type="double" columnindex="110" columnletter="DF" />
+  <variable name="AIRFLOW" translatedname="Engine Inlet Air Flow (ECU)" group="ECU" type="double" columnindex="111" columnletter="DG" />
+  <variable name="ACCPED" translatedname="Acceleration Pedal Position (ECU)" group="ECU" type="double" columnindex="112" columnletter="DH" />
+  <variable name="ALPHA_d" translatedname="Acceleration Pedal Position (PUMA)" group="ECU" type="double" columnindex="113" columnletter="DI" />
+  <variable name="SPEED" translatedname="Actual Engine Speed (PUMA)" group="ECU" type="double" columnindex="114" columnletter="DJ" />
+  <variable name="SPEEDECU" translatedname="Actual Engine Speed (ECU)" group="ECU" type="double" columnindex="115" columnletter="DK" />
+  <variable name="TORQUE" translatedname="Actual Torque (PUMA)" group="ECU" type="double" columnindex="116" columnletter="DL" />
+  <variable name="N_dem_E" translatedname="Engine Speed Demand From Engine" group="ECU" type="double" columnindex="117" columnletter="DM" />
+  <variable name="N_dem_D" translatedname="Engine Speed Demand From Dyno" group="ECU" type="double" columnindex="118" columnletter="DN" />
+  <variable name="T_dem_E" translatedname="Torque Demand From Engine" group="ECU" type="double" columnindex="119" columnletter="DO" />
+  <variable name="T_dem_D" translatedname="Torque Demand From Dyno" group="ECU" type="double" columnindex="120" columnletter="DP" />
+  <variable name="EGRPOSIT" translatedname="EGR Valve Position (ECU)" group="ECU" type="double" columnindex="121" columnletter="DQ" />
+  <variable name="TVPOSIT" translatedname="Throttle Valve Position (ECU)" group="ECU" type="double" columnindex="122" columnletter="DR" />
+  <variable name="CONTMODE" translatedname="Dyno Control Mode" group="ECU" type="integer" columnindex="123" columnletter="DS" />
+  <variable name="L_AVL" translatedname="Lamda Calculated From Airflow (ECU) And Fuel Consumption (Puma)" group="ECU" type="double" columnindex="124" columnletter="DT" />
+  <variable name="L_ECU" translatedname="Lamda Calculated From Airflow (ECU) And Fuel Consumption (ECU) excluding Post Injection" group="ECU" type="double" columnindex="125" columnletter="DU" />
+  <variable name="L_ECU2" translatedname="Lamda Calculated From Airflow (ECU) And Fuel Consumption (ECU) including Post Injection" group="ECU" type="double" columnindex="126" columnletter="DV" />
+  <variable name="TOILECUB" translatedname="Buffer for oil temperature" group="ECU" type="double" columnindex="127" columnletter="DW" />
+  <variable name="LIDLEECU" translatedname="HLSDem_nSetPLoWrm_C (ECU)" group="ECU" type="double" columnindex="128" columnletter="DX" />
+  <variable name="LIDLTECU" translatedname="HLSDem_tiSetPLoWrm_C (ECU)" group="ECU" type="double" columnindex="129" columnletter="DY" />
+  <variable name="FUELTECU" translatedname="Fuel temperature (supply pump inlet) (ECU)" group="ECU" type="double" columnindex="130" columnletter="DZ" />
+  <variable name="TOTINJS" translatedname="Total injection fuel mass (final value) (InjCtl_qSetUnBal) (ECU)" group="ECU" type="double" columnindex="131" columnletter="EA" />
+  <variable name="TOTINJC" translatedname="Total injection fuel mass (InjCtl_qCurr) (ECU)" group="ECU" type="double" columnindex="132" columnletter="EB" />
+  <variable name="TOTINJR" translatedname="Total injection fuel mass (InjCtl_qRaw) (ECU)" group="ECU" type="double" columnindex="133" columnletter="EC" />
+  <variable name="AIRFLHUB" translatedname="Actual intake air flow rate per cylinder in mg/hub (AFS_mAirPerCyl) (ECU)" group="ECU" type="double" columnindex="134" columnletter="ED" />
+  <variable name="AIRFLHB2" translatedname="Actual intake air flow rate per cylinder2 in mg/hub (AFS_mAirPerCyl_mp) (ECU)" group="ECU" type="double" columnindex="135" columnletter="EE" />
+  <variable name="AIRFLHB3" translatedname="Actual intake air flow rate per cylinder3 in kg/h (AFS_dm) (ECU)" group="ECU" type="double" columnindex="136" columnletter="EF" />
+  <variable name="AIRFLTAR" translatedname="Target intake air flow rate per cylinder in mg/hub (AirCtl_mDesVal) (ECU)" group="ECU" type="double" columnindex="137" columnletter="EG" />
+  <variable name="AIRTECU" translatedname="Intake air temperature (ECU)" group="ECU" type="double" columnindex="138" columnletter="EH" />
+  <variable name="AIRTINT" translatedname="Intake air temperature after intercooler (ECU)" group="ECU" type="double" columnindex="139" columnletter="EI" />
+  <variable name="AIRP_IN" translatedname="Intake air pressure (ECU)" group="ECU" type="double" columnindex="140" columnletter="EJ" comment="USE the P_AIR_IN variable instead" />
+  <variable name="TURBPOS" translatedname="Turbo charger VNT position (ECU)" group="ECU" type="double" columnindex="141" columnletter="EK" />
+  <variable name="EGRVALVE" translatedname="EGR cooler bypass valve (ECU)" group="ECU" type="double" columnindex="142" columnletter="EL" />
+  <variable name="RAILPRES" translatedname="Common rail pressure (ECU)" group="ECU" type="double" columnindex="143" columnletter="EM" />
+  <variable name="GOVTORQ" translatedname="Low Idle Governor pressure (ECU)" group="ECU" type="double" columnindex="144" columnletter="EN" />
+  <variable name="GOVTORQF" translatedname="Filtered output value of the EISGov (EISGov_trqFlt) (ECU)" group="ECU" type="double" columnindex="145" columnletter="EO" />
+  <variable name="GOVTORQP" translatedname="P-Component of the lower path (EISGov_trqPLo) (ECU)" group="ECU" type="double" columnindex="146" columnletter="EP" />
+  <variable name="GOVTORQD" translatedname="Weighted DT1-Component (EISGov_trqD_mp) (ECU)" group="ECU" type="double" columnindex="147" columnletter="EQ" />
+  <variable name="GOVTORQI" translatedname="I-Component of the lower path (EISGov_trqILo) (ECU)" group="ECU" type="double" columnindex="148" columnletter="ER" />
+  <variable name="HLSDEMLO" translatedname="Min engine speed of HLSDem (HLSDem_nSetPLo) (ECU)" group="ECU" type="double" columnindex="149" columnletter="ES" />
+  <variable name="PLOWTRQ" translatedname="HLSDem_WrmClthPLo.KpNeg_C (ECU)" group="ECU" type="double" columnindex="150" columnletter="ET" />
+  <variable name="Acceleration_Pedal_Position" translatedname="Acceleration Pedal Position [%] (INCA ECU)" group="ECU INCA" type="double" columnindex="151" columnletter="EU" />
+  <variable name="Airflow" translatedname="Airflow [mg/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="152" columnletter="EV" />
+  <variable name="AirflowKgH" translatedname="Airflow [kg/h] (INCA ECU)" group="ECU INCA" type="double" columnindex="153" columnletter="EW" />
+  <variable name="Battery_Voltage" translatedname="Battery Voltage [V] (INCA ECU)" group="ECU INCA" type="double" columnindex="154" columnletter="EX" />
+  <variable name="Calculated_Engine_Load" translatedname="Calculated Engine Load [Nm] (INCA ECU)" group="ECU INCA" type="double" columnindex="155" columnletter="EY" />
+  <variable name="Coolant_Temperature" translatedname="Coolant Temperature [°C] (INCA ECU)" group="ECU INCA" type="double" columnindex="156" columnletter="EZ" />
+  <variable name="Desired_Air_Mass" translatedname="Desired Air Mass [mg/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="157" columnletter="FA" />
+  <variable name="EGR_Exhaust_Temp_After_EGR_Cooler1" translatedname="EGR Exhaust Temperature After EGT Cooler 1 [°C] (INCA ECU)" group="ECU INCA" type="double" columnindex="158" columnletter="FB" />
+  <variable name="EGR_Valve_Position" translatedname="EGR Valve Position [%] (INCA ECU)" group="ECU INCA" type="double" columnindex="159" columnletter="FC" />
+  <variable name="Engine_Operation_Mode" translatedname="Engine Operation Mode [-] (INCA ECU)" group="ECU INCA" type="double" columnindex="160" columnletter="FD" />
+  <variable name="Engine_Speed" translatedname="Engine Speed [rpm] (INCA ECU)" group="ECU INCA" type="double" columnindex="161" columnletter="FE" />
+  <variable name="Fuel_Temperature" translatedname="Fuel Temperature [°C] (INCA ECU)" group="ECU INCA" type="double" columnindex="162" columnletter="FF" />
+  <variable name="Intake_Air_Pressure" translatedname="Intake Air Pressure [mbar] (INCA ECU)" group="ECU INCA" type="double" columnindex="163" columnletter="FG" />
+  <variable name="Intake_Air_Temp_After_Intercooler" translatedname="Intake Air Temperature After Intercooler [°C] (INCA ECU)" group="ECU INCA" type="double" columnindex="164" columnletter="FH" />
+  <variable name="Intake_Air_Temperature" translatedname="Intake Air Temperature [°C] (INCA ECU)" group="ECU INCA" type="double" columnindex="165" columnletter="FI" />
+  <variable name="Lamda_Calculated" translatedname="Lamda Calculated [-] (INCA ECU)" group="ECU INCA" type="double" columnindex="166" columnletter="FJ" />
+  <variable name="Main_Injection" translatedname="Main Injection [mm3/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="167" columnletter="FK" />
+  <variable name="Main_Injection_Timing" translatedname="Main Injection Timing [deg Crs] (INCA ECU)" group="ECU INCA" type="double" columnindex="168" columnletter="FL" />
+  <variable name="Main_Injection_Timing_InjCrv_phiMI1CorDes" translatedname="Main Injection Timing InjCrv_phiMI1CorDes [deg Crs] (INCA ECU)" group="ECU INCA" type="double" columnindex="169" columnletter="FM" />
+  <variable name="Main_Injection_Timing_us" translatedname="Main Injection Timing [us] (INCA ECU)" group="ECU INCA" type="double" columnindex="170" columnletter="FN" />
+  <variable name="Pilot_Injection_1" translatedname="Pilot Injection 1 [mm3/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="171" columnletter="FO" />
+  <variable name="Pilot_Injection_1_Timing_deg_CrS" translatedname="Pilot Injection 1 Timing [deg Crs] (INCA ECU)" group="ECU INCA" type="double" columnindex="172" columnletter="FP" />
+  <variable name="Pilot_Injection_1_Timing_InjCrv_phiPiI1AbsTot" translatedname="Pilot Injection 1 Timing InjCrv_phiPiI1AbsTot [deg Crs] (INCA ECU)" group="ECU INCA" type="double" columnindex="173" columnletter="FQ" />
+  <variable name="Pilot_Injection_1_Timing_us" translatedname="Pilot Injection 1 Timing [us] (INCA ECU)" group="ECU INCA" type="double" columnindex="174" columnletter="FR" />
+  <variable name="Pilot_Injection_2" translatedname="Pilot Injection 2 [mm3/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="175" columnletter="FS" />
+  <variable name="Pilot_Injection_2_Timing_deg_CrS" translatedname="Pilot Injection 2 Timing [deg Crs] (INCA ECU)" group="ECU INCA" type="double" columnindex="176" columnletter="FT" />
+  <variable name="Pilot_Injection_2_Timing_InjCrv_phiPiI2AbsTot" translatedname="Pilot Injection 2 Timing InjCrv_phiPiI2AbsTot [deg Crs] (INCA ECU)" group="ECU INCA" type="double" columnindex="177" columnletter="FU" />
+  <variable name="Pilot_Injection_2_Timing_us" translatedname="Pilot Injection 2 Timing [us] (INCA ECU)" group="ECU INCA" type="double" columnindex="178" columnletter="FV" />
+  <variable name="Pilot_Injection_Total" translatedname="Pilot Injection Total [mm3/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="179" columnletter="FW" />
+  <variable name="Post_Injection_Early_PoI2" translatedname="Post Injection Early PoI2 [mm3/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="180" columnletter="FX" />
+  <variable name="Post_Injection_Late_PoI1" translatedname="Post Injection Late PoI1 [mm3/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="181" columnletter="FY" />
+  <variable name="Rail_Pressure" translatedname="Rail Pressure [bar] (INCA ECU)" group="ECU INCA" type="double" columnindex="182" columnletter="FZ" />
+  <variable name="Throttle_Valve_Position" translatedname="Throttle Valve Position [%] (INCA ECU)" group="ECU INCA" type="double" columnindex="183" columnletter="GA" />
+  <variable name="Total_Injection" translatedname="Total Injection [mg/str] (INCA ECU)" group="ECU INCA" type="double" columnindex="184" columnletter="GB" />
+  <variable name="Total_InjectionKgH" translatedname="Total Injection [kg/h] (INCA ECU)" group="ECU INCA" type="integer" columnindex="185" columnletter="GC" />
+  <variable name="Turbo_VNT_Position" translatedname="Turbo VNT Position [%] (INCA ECU)" group="ECU INCA" type="double" columnindex="186" columnletter="GD" />
+  <variable name="IncaTime" translatedname="Inca Time (INCA)" group="ECU INCA" type="integer" columnindex="187" columnletter="GE" />
+  <variable name="FB_DENS" translatedname="Fuel Density (PUMA)" group="PUMA" type="double" columnindex="188" columnletter="GF" />
+  <variable name="FB_TEMP" translatedname="Fuel temperature conditioning system in (PUMA)" group="PUMA" type="double" columnindex="189" columnletter="GG" />
+  <variable name="FB_VAL" translatedname="Fuel consumption (PUMA)" group="PUMA" type="double" columnindex="190" columnletter="GH" />
+  <variable name="FT_TACT" translatedname="Fuel temperature conditioning system out" group="PUMA" type="double" columnindex="191" columnletter="GI" />
+  <variable name="FT_TSET" translatedname="Fuel temperature conditioning system set" group="PUMA" type="double" columnindex="192" columnletter="GJ" />
+  <variable name="MEANDP" translatedname="Mean DPF pressure drop" group="Statistics" type="double" columnindex="193" columnletter="GK" />
+  <variable name="MAXDP" translatedname="Max DPF pressure drop" group="Statistics" type="double" columnindex="194" columnletter="GL" />
+  <variable name="MEANT13" translatedname="Mean DPF inlet temperature" group="Statistics" type="double" columnindex="195" columnletter="GM" />
+  <variable name="MAXT13" translatedname="Max DPF inlet temperature" group="Statistics" type="double" columnindex="196" columnletter="GN" />
+  <variable name="MEANT15" translatedname="Mean DPF outlet temperature" group="Statistics" type="double" columnindex="197" columnletter="GO" />
+  <variable name="MAXT15" translatedname="Max DPF outlet temperature" group="Statistics" type="double" columnindex="198" columnletter="GP" />
+  <variable name="MEANAIRF" translatedname="Mean air flow rate" group="Statistics" type="double" columnindex="199" columnletter="GQ" />
+  <variable name="MEANRPM" translatedname="Mean engine speed" group="Statistics" type="double" columnindex="200" columnletter="GR" />
+  <variable name="MEANTORQ" translatedname="Mean torque" group="Statistics" type="double" columnindex="201" columnletter="GS" />
+  <variable name="MEANEGR" translatedname="Mean EGR valve position" group="Statistics" type="double" columnindex="202" columnletter="GT" />
+  <variable name="MEANINJ2" translatedname="Mean fuel consumption (ECU)" group="Statistics" type="double" columnindex="203" columnletter="GU" />
+  <variable name="MEANFBVL" translatedname="Mean fuel consumption (PUMA)" group="Statistics" type="double" columnindex="204" columnletter="GV" />
+  <variable name="MEANAO2" translatedname="Mean O2" group="Statistics" type="double" columnindex="205" columnletter="GW" />
+  <variable name="MEANANOX" translatedname="Mean NOx" group="Statistics" type="double" columnindex="206" columnletter="GX" />
+  <variable name="MEANAIRT" translatedname="Mean inlet air temperature" group="Statistics" type="double" columnindex="207" columnletter="GY" />
+  <variable name="MEANDPC" translatedname="Mean DPF pressure drop at 3500/0 (Average last 30 sec)" group="Statistics" type="double" columnindex="208" columnletter="GZ" />
+  <variable name="MEANT13C" translatedname="Mean DPF inlet temperature at 3500/0 (Average last 30 sec)" group="Statistics" type="double" columnindex="209" columnletter="HA" />
+  <variable name="MEANAIRC" translatedname="Mean air flow rate at 3500/0 (Average last 30 sec)" group="Statistics" type="double" columnindex="210" columnletter="HB" />
+  <variable name="SELECT" translatedname="Cycle counter" group="Statistics" type="integer" columnindex="211" columnletter="HC" interpolation="nearest"/>
+  <variable name="SELECTC" translatedname="Steady state 3500/0 counter" group="Statistics" type="integer" columnindex="212" columnletter="HD" interpolation="nearest"/>
+  <variable name="MSSDILPA" translatedname="Dilution Ratio (AVL 483 Micro Soot Sensor)" group="MSS" type="double" columnindex="213" columnletter="HE" />
+  <variable name="MSSCON" translatedname="Concentration sensor (AVL 483 Micro Soot Sensor)" group="MSS" type="double" columnindex="214" columnletter="HF" />
+  <variable name="MSSCONDC" translatedname="Concentration dil. corrected (AVL 483 Micro Soot Sensor)" group="MSS" type="double" columnindex="215" columnletter="HG" />
+  <variable name="MSSSTATE" translatedname="MSS State" group="MSS" type="integer" columnindex="216" columnletter="HH" interpolation="nearest"/>
+  <variable name="MSSVC" translatedname="MSS Vanes Combination" group="MSS" type="integer" columnindex="217" columnletter="HI" interpolation="nearest"/>
+  <variable name="S415_SC" translatedname="Smokemeter 1" group="MSS" type="double" columnindex="218" columnletter="HJ" interpolation="nearest"/>
+  <variable name="S415_SC2" translatedname="Smokemeter 2" group="MSS" type="double" columnindex="219" columnletter="HK" interpolation="nearest"/>
+  <variable name="PORT1" translatedname="Gas mixer Port 1 Gas" group="Gas Mixer" type="string" columnindex="220" columnletter="HL"  interpolation="nearest"/>
+  <variable name="CYL_CONC1" translatedname="Gas mixer Port 1 Cylinder Concentration" group="Gas Mixer" type="double" columnindex="221" columnletter="HM" />
+  <variable name="TARGET_CONC1" translatedname="Gas mixer Port 1 Target Concentration" group="Gas Mixer" type="double" columnindex="222" columnletter="HN" />
+  <variable name="ACTUAL_CONC1" translatedname="Gas mixer Port 1 Actual Concentration" group="Gas Mixer" type="double" columnindex="223" columnletter="HO" />
+  <variable name="TARGET1_FLOW" translatedname="Gas mixer Port 1 Target Flow" group="Gas Mixer" type="double" columnindex="224" columnletter="HP" />
+  <variable name="ACTUAL1_FLOW" translatedname="Gas mixer Port 1 Actual Flow" group="Gas Mixer" type="double" columnindex="225" columnletter="HQ" />
+  <variable name="PORT2" translatedname="Gas mixer Port 2 Gas" group="Gas Mixer" type="string" columnindex="226" columnletter="HR"  interpolation="nearest"/>
+  <variable name="CYL_CONC2" translatedname="Gas mixer Port 2 Cylinder Concentration" group="Gas Mixer" type="double" columnindex="227" columnletter="HS" />
+  <variable name="TARGET_CONC2" translatedname="Gas mixer Port 2 Target Concentration" group="Gas Mixer" type="double" columnindex="228" columnletter="HT" />
+  <variable name="ACTUAL_CONC2" translatedname="Gas mixer Port 2 Actual Concentration" group="Gas Mixer" type="double" columnindex="229" columnletter="HU" />
+  <variable name="TARGET2_FLOW" translatedname="Gas mixer Port 2 Target Flow" group="Gas Mixer" type="double" columnindex="230" columnletter="HV" />
+  <variable name="ACTUAL2_FLOW" translatedname="Gas mixer Port 2 Actual Flow" group="Gas Mixer" type="double" columnindex="231" columnletter="HW" />
+  <variable name="PORT3" translatedname="Gas mixer Port 3 Gas" group="Gas Mixer" type="string" columnindex="232" columnletter="HX"  interpolation="nearest"/>
+  <variable name="CYL_CONC3" translatedname="Gas mixer Port 3 Cylinder Concentration" group="Gas Mixer" type="double" columnindex="233" columnletter="HY" />
+  <variable name="TARGET_CONC3" translatedname="Gas mixer Port 3 Target Concentration" group="Gas Mixer" type="double" columnindex="234" columnletter="HZ" />
+  <variable name="ACTUAL_CONC3" translatedname="Gas mixer Port 3 Actual Concentration" group="Gas Mixer" type="double" columnindex="235" columnletter="IA" />
+  <variable name="TARGET3_FLOW" translatedname="Gas mixer Port 3 Target Flow" group="Gas Mixer" type="double" columnindex="236" columnletter="IB" />
+  <variable name="ACTUAL3_FLOW" translatedname="Gas mixer Port 3 Actual Flow" group="Gas Mixer" type="double" columnindex="237" columnletter="IC" />
+  <variable name="PORT4" translatedname="Gas mixer Port 4 Gas" group="Gas Mixer" type="string" columnindex="238" columnletter="ID"  interpolation="nearest"/>
+  <variable name="CYL_CONC4" translatedname="Gas mixer Port 4 Cylinder Concentration" group="Gas Mixer" type="double" columnindex="239" columnletter="IE" />
+  <variable name="TARGET_CONC4" translatedname="Gas mixer Port 4 Target Concentration" group="Gas Mixer" type="double" columnindex="240" columnletter="IF" />
+  <variable name="ACTUAL_CONC4" translatedname="Gas mixer Port 4 Actual Concentration" group="Gas Mixer" type="double" columnindex="241" columnletter="IG" />
+  <variable name="TARGET4_FLOW" translatedname="Gas mixer Port 4 Target Flow" group="Gas Mixer" type="double" columnindex="242" columnletter="IH" />
+  <variable name="ACTUAL4_FLOW" translatedname="Gas mixer Port 4 Actual Flow" group="Gas Mixer" type="double" columnindex="243" columnletter="II" />
+  <variable name="PORT5" translatedname="Gas mixer Port 5 Gas" group="Gas Mixer" type="string" columnindex="244" columnletter="IJ"  interpolation="nearest"/>
+  <variable name="CYL_CONC5" translatedname="Gas mixer Port 5 Cylinder Concentration" group="Gas Mixer" type="double" columnindex="245" columnletter="IK" />
+  <variable name="TARGET_CONC5" translatedname="Gas mixer Port 5 Target Concentration" group="Gas Mixer" type="double" columnindex="246" columnletter="IL" />
+  <variable name="ACTUAL_CONC5" translatedname="Gas mixer Port 5 Actual Concentration" group="Gas Mixer" type="double" columnindex="247" columnletter="IM" />
+  <variable name="TARGET5_FLOW" translatedname="Gas mixer Port 5 Target Flow" group="Gas Mixer" type="double" columnindex="248" columnletter="IN" />
+  <variable name="ACTUAL5_FLOW" translatedname="Gas mixer Port 5 Actual Flow" group="Gas Mixer" type="double" columnindex="249" columnletter="IO" />
+  <variable name="PORT6" translatedname="Gas mixer Port 6 Gas" group="Gas Mixer" type="string" columnindex="250" columnletter="IP"  interpolation="nearest"/>
+  <variable name="CYL_CONC6" translatedname="Gas mixer Port 6 Cylinder Concentration" group="Gas Mixer" type="double" columnindex="251" columnletter="IQ" />
+  <variable name="TARGET_CONC6" translatedname="Gas mixer Port 6 Target Concentration" group="Gas Mixer" type="double" columnindex="252" columnletter="IR" />
+  <variable name="ACTUAL_CONC6" translatedname="Gas mixer Port 6 Actual Concentration" group="Gas Mixer" type="double" columnindex="253" columnletter="IS" />
+  <variable name="TARGET6_FLOW" translatedname="Gas mixer Port 6 Target Flow" group="Gas Mixer" type="double" columnindex="254" columnletter="IT" />
+  <variable name="ACTUAL6_FLOW" translatedname="Gas mixer Port 6 Actual Flow" group="Gas Mixer" type="double" columnindex="255" columnletter="IU" />
+  <variable name="BALANCE" translatedname="Gas mixer Balance Port" group="Gas Mixer" type="integer" columnindex="256" columnletter="IV"  interpolation="nearest"/>
+  <variable name="MODE" translatedname="Gas mixer Mode (Concentration/Flow)" group="Gas Mixer" type="string" columnindex="257" columnletter="IW"  interpolation="nearest"/>
+  <variable name="TARGET_FLOW" translatedname="Gas mixer target flow" group="Gas Mixer" type="double" columnindex="258" columnletter="IX" />
+  <variable name="ACTUAL_FLOW" translatedname="Gas mixer actual flow" group="Gas Mixer" type="double" columnindex="259" columnletter="IY" />
+  <variable name="Liquid" translatedname="Syringe liquid" group="Syringe" type="string" columnindex="260" columnletter="IZ" interpolation="nearest"/>
+  <variable name="Syringe" translatedname="Syringe type" group="Syringe" type="string" columnindex="261" columnletter="JA"  interpolation="nearest"/>
+  <variable name="Target volume" translatedname="Syringe target volume" group="Syringe" type="double" columnindex="262" columnletter="JB" />
+  <variable name="Delivered volume" translatedname="Syringe delivered volume" group="Syringe" type="double" columnindex="263" columnletter="JC" />
+  <variable name="Infusion rate" translatedname="Syringe infusion rate" group="Syringe" type="double" columnindex="264" columnletter="JD" />
+  <variable name="Status" translatedname="Syringe status" group="Syringe" type="string" columnindex="265" columnletter="JE" interpolation="nearest"/>
+  <variable name="H2-2_CURR" translatedname="H2 Mass unit 2 Current" group="Thermostar" type="double" columnindex="266" columnletter="JF" />
+  <variable name="2 amu H2_CURR" translatedname="H2 Mass unit 2 Current" group="Thermostar" type="double" columnindex="266" columnletter="JF" />
+  <variable name="2 amu H2 Ion Current" translatedname="H2 Mass unit 2 Current" group="Thermostar" type="double" columnindex="266" columnletter="JF" />
+  <variable name="15 amu NH_CURR" translatedname="NH Mass unit 15 Current" group="Thermostar" type="double" columnindex="267" columnletter="JG" />
+  <variable name="15 amu NH Ion Current" translatedname="NH Mass unit 15 Current" group="Thermostar" type="double" columnindex="267" columnletter="JG" />
+  <variable name="16 amu NH2_CURR" translatedname="NH2 Mass unit 16 Current" group="Thermostar" type="double" columnindex="268" columnletter="JH" />
+  <variable name="16 amu NH2 Ion Current" translatedname="NH2 Mass unit 16 Current" group="Thermostar" type="double" columnindex="268" columnletter="JH" />
+  <variable name="17 amu NH3_CURR" translatedname="NH3 Mass unit 17 Current" group="Thermostar" type="double" columnindex="269" columnletter="JI" />
+  <variable name="17 amu NH3 Ion Current" translatedname="NH3 Mass unit 17 Current" group="Thermostar" type="double" columnindex="269" columnletter="JI" />
+  <variable name="H2O-18_CURR" translatedname="H2O Mass unit 18 Current" group="Thermostar" type="double" columnindex="270" columnletter="JJ" />
+  <variable name="18 amu H2O_CURR" translatedname="H2O Mass unit 18 Current" group="Thermostar" type="double" columnindex="270" columnletter="JJ" />
+  <variable name="18 amu H2O Ion Current" translatedname="H2O Mass unit 18 Current" group="Thermostar" type="double" columnindex="270" columnletter="JJ" />
+  <variable name="33 amu HS_CURR" translatedname="HS Mass unit 33 Current" group="Thermostar" type="double" columnindex="271" columnletter="JK" />
+  <variable name="H2S-34_CURR" translatedname="H2S Mass unit 34 Current" group="Thermostar" type="double" columnindex="272" columnletter="JL" />
+  <variable name="34 amu H2S_CURR" translatedname="H2S Mass unit 34 Current" group="Thermostar" type="double" columnindex="272" columnletter="JL" />
+  <variable name="H2S-35_CURR" translatedname="H2S Mass unit 35 Current" group="Thermostar" type="double" columnindex="272" columnletter="JL" />
+  <variable name="SO-48_CURR" translatedname="SO Mass unit 48 Current" group="Thermostar" type="double" columnindex="273" columnletter="JM" />
+  <variable name="48 amu SO_CURR" translatedname="SO Mass unit 48 Current" group="Thermostar" type="double" columnindex="273" columnletter="JM" />
+  <variable name="COS-60_CURR" translatedname="COS Mass unit 60 Current" group="Thermostar" type="double" columnindex="274" columnletter="JN" />
+  <variable name="60 amu COS_CURR" translatedname="COS Mass unit 60 Current" group="Thermostar" type="double" columnindex="274" columnletter="JN" />
+  <variable name="SO2-64_CURR" translatedname="SO2 Mass unit 64 Current" group="Thermostar" type="double" columnindex="275" columnletter="JO" />
+  <variable name="64 amu SO2_CURR" translatedname="SO2 Mass unit 64 Current" group="Thermostar" type="double" columnindex="275" columnletter="JO" />
+  <variable name="80 amu SO3_CURR" translatedname="SO3 Mass unit 80 Current" group="Thermostar" type="double" columnindex="276" columnletter="JP" />
+  <variable name="H2-2_CONC" translatedname="H2 Mass unit 2 Concentration" group="Thermostar" type="double" columnindex="277" columnletter="JQ" />
+  <variable name="H2O-18_CONC" translatedname="H2O Mass unit 18 Concentration" group="Thermostar" type="double" columnindex="278" columnletter="JR" />
+  <variable name="H2S-34_CONC" translatedname="H2S Mass unit 34 Concentration" group="Thermostar" type="double" columnindex="279" columnletter="JS" />
+  <variable name="H2S-35_CONC" translatedname="H2S Mass unit 35 Concentration" group="Thermostar" type="double" columnindex="279" columnletter="JS" />
+  <variable name="SO2-48_CONC" translatedname="SO2 Mass unit 48 Concentration" group="Thermostar" type="double" columnindex="280" columnletter="JT" />
+  <variable name="COS-60_CONC" translatedname="COS Mass unit 60 Concentration" group="Thermostar" type="double" columnindex="281" columnletter="JU" />
+  <variable name="SO2-64_CONC" translatedname="SO2 Mass unit 64 Concentration" group="Thermostar" type="double" columnindex="282" columnletter="JV" />
+</variables>
