@@ -35,14 +35,14 @@
   <ItemGroup>
     <Reference Include="Paulus.Collections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\dev\Paulus\IO\bin\Release\Paulus.Collections.dll</HintPath>
+      <HintPath>..\..\Paulus\Collections\bin\Release\Paulus.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Paulus.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\dev\Paulus\IO\bin\Release\Paulus.Common.dll</HintPath>
+      <HintPath>..\..\Paulus\Common\bin\Release\Paulus.Common.dll</HintPath>
     </Reference>
     <Reference Include="Paulus.IO">
-      <HintPath>..\..\..\..\dev\Paulus\IO\obj\Release\Paulus.IO.dll</HintPath>
+      <HintPath>..\..\Paulus\IO\bin\Release\Paulus.IO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

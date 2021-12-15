@@ -199,8 +199,8 @@ namespace ConvertMerge
         public static double DefaultExperimentTimeStepInSeconds;
         public static bool DefaultShouldExportExperiment;
         public static bool DefaultExportToPuma;
-         public static bool DefaultReserveColumns;
-       public static bool DefaultShouldExportRecorder;
+        public static bool DefaultReserveColumns;
+        public static bool DefaultShouldExportRecorder;
         public static SyncModes DefaultExperimentMergeMode;
         public static SyncModes DefaultRecorderMergeMode;
         public static InterpolationMode DefaultInterpolationMode;
@@ -365,7 +365,7 @@ namespace ConvertMerge
 
             //27-Jul-2020
             bool? reserveColumns = experiment_defaults.GetAttributeOrElementBool("reserve_columns");
-            DefaultReserveColumns= reserveColumns.HasValue ? reserveColumns.Value : Settings.Default.ReserveColumns;
+            DefaultReserveColumns = reserveColumns.HasValue ? reserveColumns.Value : Settings.Default.ReserveColumns;
 
             //merge mode
             SyncModes mergeMode = XmlSettings.getMergeMode(experiment_defaults);

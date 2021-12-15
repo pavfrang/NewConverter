@@ -55,19 +55,15 @@
     </Reference>
     <Reference Include="Paulus.Collections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\dev\Paulus\IO\bin\Release\Paulus.Collections.dll</HintPath>
+      <HintPath>..\..\Paulus\Collections\bin\Release\Paulus.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Paulus.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\dev\Paulus\IO\bin\Release\Paulus.Common.dll</HintPath>
+      <HintPath>..\..\Paulus\Common\bin\Release\Paulus.Common.dll</HintPath>
     </Reference>
     <Reference Include="Paulus.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\dev\Paulus\Excel\bin\Release\Paulus.Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="Paulus.IO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\dev\Paulus\IO\bin\Release\Paulus.IO.dll</HintPath>
+      <HintPath>..\..\Paulus\Excel\bin\Release\Paulus.Excel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -164,6 +160,12 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="variables.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Paulus\IO\Paulus.IO.csproj">
+      <Project>{16dcc10b-e232-44d9-9edc-bb07061f13e2}</Project>
+      <Name>Paulus.IO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

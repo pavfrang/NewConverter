@@ -89,8 +89,12 @@ namespace ConvertMerge
             Dictionary<string, XmlVariable> vars = new Dictionary<string, XmlVariable>();
 
             foreach (XmlElement el in variables)
-                vars.Add(el.Attributes["name"].Value, (XmlVariable)el);
-
+            {
+                string name = el.Attributes["name"].Value;
+                if (vars.ContainsKey(name))
+                    throw new InvalidOperationException($"'{name}' variable is defined more than once.");
+                vars.Add(name, (XmlVariable)el);
+            }
             return vars;
         }
 

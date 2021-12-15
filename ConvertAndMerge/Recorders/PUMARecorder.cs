@@ -22,7 +22,7 @@ namespace ConvertMerge
 
         protected internal override void ReadStartingTime()
         {
-            if(!ReadStartTimeFromXmlRecord())
+            if (!ReadStartTimeFromXmlRecord())
             {
                 string variablesLine = StreamReaderExtensions.ReadLine(_sourceFilePath, 1);
 
@@ -37,8 +37,13 @@ namespace ConvertMerge
 
                 if (sRecordDateTime.Contains("/"))
                 {
-                    //2016/04/05 10:18:36
-                    StartAbsoluteTime = DateTime.ParseExact(sRecordDateTime, @"yyyy/MM/dd HH:mm:ss", EN);
+                    StartAbsoluteTime = DateTime.ParseExact(sRecordDateTime,
+
+                        sRecordDateTime.Contains(".") ?
+                   //2021/11/05 16:52:32.469
+                   @"yyyy/MM/dd HH:mm:ss.fff" :
+                     //2016/04/05 10:18:36
+                     @"yyyy/MM/dd HH:mm:ss", EN);
                 }
                 else //eg:20091015141633
                 {
@@ -94,7 +99,7 @@ namespace ConvertMerge
                 string name = variableNameTokens[i];
 
                 //omit the variable if it is a $iStartTime
-                if (name == "$iStartTime" || name=="Absolute_Time") continue;
+                if (name == "$iStartTime" || name == "Absolute_Time") continue;
 
                 if (xmlVariables != null &&
                     xmlVariables.ContainsKey(name) &&

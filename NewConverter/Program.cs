@@ -12,7 +12,7 @@ namespace NewConverter
     {
         protected static TraceSource trace = new TraceSource("ExperimentManager", SourceLevels.All);
 
-        //this is git test
+        //this is git test 2
         static ExperimentManager exp;
 
 
