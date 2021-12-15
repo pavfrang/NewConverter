@@ -124,7 +124,7 @@ namespace ConvertMerge
             foreach (Category c in categories)
             {
                 var vu = StringExtensions.GetVariableNameAndUnit(c.Description, '[', ']');
-                c.Description = vu.Name; c.Unit = vu.Unit;
+                c.Description = vu.Name; c.Unit = vu.Unit; //.Replace("Β", ""); //replace greek Beta;
             }
 
 

@@ -150,29 +150,29 @@ namespace ConvertMerge
 
         public virtual void Merge()
         {
-            checkIfRequiredValuesAreSet();
+            CheckIfRequiredValuesAreSet();
 
-            setTimeStep(_exportTimeStep);
+            SetTimeStep(_exportTimeStep);
 
-            updateTimeInfoAfterTimeStepChange();
+            UpdateTimeInfoAfterTimeStepChange();
 
             //exportToFiles(); (good for debugging)
 
-            calculateStartEndVariableIndices();
+            CalculateStartEndVariableIndices();
 
-            resetVariableIndices();
+            ResetVariableIndices();
 
             if (ShouldSaveToPumaFile)
-                writeToPumaFile();
+                WriteToPumaFile();
             else if (ShouldSaveToFile)
-                writeToFile();
+                WriteToFile();
         }
 
 
         /// <summary>
         /// Sets the order of the variables to be exported at the text file. Must be called prior to Merge.
         /// </summary>
-        protected void reorderVariables(Dictionary<string, XmlVariable> xmlVariables)
+        protected void ReorderVariables(Dictionary<string, XmlVariable> xmlVariables)
         {
             //get max columnindex for the registered variables (i.e. declared in the variables xml file)
             int maxColumnIndex = xmlVariables.Max(v => v.Value.ColumnIndex); // _variables.Max(v => v.ColumnInTargetFile);
@@ -187,7 +187,7 @@ namespace ConvertMerge
             _variables.Sort((v1, v2) => (v1.ColumnInTargetFile - v2.ColumnInTargetFile));
         }
 
-        private void checkIfRequiredValuesAreSet()
+        private void CheckIfRequiredValuesAreSet()
         {
             //check if the required variables are set
             if (_variables.Count == 0) throw new InvalidOperationException("The variables list has not been set.");
@@ -196,7 +196,7 @@ namespace ConvertMerge
             if (string.IsNullOrWhiteSpace(_mergeFilePath)) throw new ArgumentException("Merge file path has not been set.", "MergeFilePath");
         }
 
-        private void setTimeStep(double timeStep)
+        private void SetTimeStep(double timeStep)
         {
             foreach (VariableInfo v in _variables)
                 v.setExportTimeStep(timeStep);
@@ -207,7 +207,7 @@ namespace ConvertMerge
         public DateTime EarliestStartAbsoluteTime, LatestStartAbsoluteTime, EarliestEndAbsoluteTime, LatestEndAbsoluteTime;
         public double EarliestStartRelativeTime, LatestStartRelativeTime, EarliestEndRelativeTime, LatestEndRelativeTime;
 
-        private void updateTimeInfoAfterTimeStepChange()
+        private void UpdateTimeInfoAfterTimeStepChange()
         {
             if (ContainsAtLeastOneNonEmptyVariable())
             {
@@ -244,7 +244,7 @@ namespace ConvertMerge
         ////updated by resetVariableIndices(), addVariableValuesToRecordLine()
         private Dictionary<VariableInfo, SingleVariableSynchronizerInfo> variableSynchronizers;
 
-        private void calculateStartEndVariableIndices()
+        private void CalculateStartEndVariableIndices()
         {
 
             //those are needed for the synchronization between recorders
@@ -263,7 +263,7 @@ namespace ConvertMerge
             //    v.setMergeProperties(_startMergeAbsoluteTime, _endMergeAbsoluteTime);
         }
 
-        private void resetVariableIndices()
+        private void ResetVariableIndices()
         {
             foreach (KeyValuePair<VariableInfo, SingleVariableSynchronizerInfo> entry in variableSynchronizers)
                 entry.Value.ResetSyncIndex(_syncMode);
@@ -279,9 +279,9 @@ namespace ConvertMerge
         #region Write to ASCII file
         private int iLine;
 
-        private void writeToFile()
+        private void WriteToFile()
         {
-            string header = getVariablesHeader();
+            string header = GetVariablesHeader();
 
             iLine = 0;
 
@@ -295,12 +295,12 @@ namespace ConvertMerge
                 {
                     lineBuilder.Clear();
 
-                    if (!addTimeToRecordLine(lineBuilder)) break;
+                    if (!AddTimeToRecordLine(lineBuilder)) break;
 
                     if (ShouldReserveColumns)
-                        addVariableValuesToRecordLine(lineBuilder);
+                        AddVariableValuesToRecordLine(lineBuilder);
                     else
-                        addVariableValuesToPumaRecordLine(lineBuilder);
+                        AddVariableValuesToPumaRecordLine(lineBuilder);
 
                     writer.WriteLine(lineBuilder.ToString());
 
@@ -309,7 +309,7 @@ namespace ConvertMerge
             }
         }
 
-        private string getVariablesHeader()
+        private string GetVariablesHeader()
         {
 
             if (ShouldReserveColumns)
@@ -342,7 +342,7 @@ namespace ConvertMerge
 
         }
 
-        private bool addTimeToRecordLine(StringBuilder lineBuilder)
+        private bool AddTimeToRecordLine(StringBuilder lineBuilder)
         {
             bool addedTime = false;
             foreach (VariableInfo v in _variables)
@@ -364,7 +364,7 @@ namespace ConvertMerge
             return addedTime;
         }
 
-        private void addVariableValuesToRecordLine(StringBuilder lineBuilder)
+        private void AddVariableValuesToRecordLine(StringBuilder lineBuilder)
         {
             int previousColumn = 2;
 
@@ -397,7 +397,7 @@ namespace ConvertMerge
 
         #region Write to PUMA file
 
-        private void writeToPumaFile()
+        private void WriteToPumaFile()
         {
             //string pumaFilePath = Path.Combine(Path.GetDirectoryName(_mergeFilePath), Path.GetFileNameWithoutExtension(_mergeFilePath) + "_PUMA.txt");
             string pumaFilePath = _mergeFilePath;
@@ -423,9 +423,9 @@ namespace ConvertMerge
                 {
                     lineBuilder.Clear();
 
-                    if (!addTimeToRecordLine(lineBuilder)) break;
+                    if (!AddTimeToRecordLine(lineBuilder)) break;
 
-                    addVariableValuesToPumaRecordLine(lineBuilder); //the first time we should add the start time!
+                    AddVariableValuesToPumaRecordLine(lineBuilder); //the first time we should add the start time!
                     writer.Write(lineBuilder.ToString());
 
                     if (firstTime)
@@ -445,7 +445,7 @@ namespace ConvertMerge
 
 
 
-        private void addVariableValuesToPumaRecordLine(StringBuilder lineBuilder)
+        private void AddVariableValuesToPumaRecordLine(StringBuilder lineBuilder)
         {
             for (int iV = 0; iV < _variables.Count; iV++)
             {
@@ -506,7 +506,7 @@ namespace ConvertMerge
 
             d.Enqueue(wb);
 
-            changeTimeFormatAndCorrectDegrees(excel, wb);
+            ChangeTimeFormatAndCorrectDegrees(excel, wb);
 
             wb.SaveAs(xlsx, FileFormat: Excel.XlFileFormat.xlOpenXMLWorkbook);
 
@@ -528,7 +528,7 @@ namespace ConvertMerge
             //File.Delete(_mergeFilePath);
         }
 
-        private void changeTimeFormatAndCorrectDegrees(Excel.Application excel, Excel.Workbook wb)
+        private void ChangeTimeFormatAndCorrectDegrees(Excel.Application excel, Excel.Workbook wb)
         {
             //Excel.Application excel = wb.Application;
 
@@ -541,11 +541,15 @@ namespace ConvertMerge
 
             timeColumn.NumberFormat = @"[$-F400]h:mm:ss AM/PM";
 
-            Excel.Range allCells = sh.Cells; d.Enqueue(allCells);
-
-            allCells.Replace(What: @"Β°C", Replacement: "°C", LookAt: Excel.XlLookAt.xlPart,
-                SearchOrder: Excel.XlSearchOrder.xlByRows, MatchCase: false, SearchFormat: false,
-                    ReplaceFormat: false);
+            //Excel.Range allCells = sh.Rows[1].Cells;  d.Enqueue(allCells);
+            //allCells.Replace(What: @"Β°C", Replacement: "°C", LookAt: Excel.XlLookAt.xlPart,
+            //    SearchOrder: Excel.XlSearchOrder.xlByRows, MatchCase: false, SearchFormat: false,
+            //        ReplaceFormat: false);
+            Excel.Range a1 = sh.Range["a1"]; d.Enqueue(a1);
+            Excel.Range aLast = a1.End[Excel.XlDirection.xlToRight]; d.Enqueue(aLast);
+            Excel.Range a = sh.Range[a1, aLast]; d.Enqueue(a);
+            foreach(Excel.Range c in a)
+                c.Value = ((string)c.Value).Replace("Β", "");
 
             sh.Name = "synced";
 
@@ -553,7 +557,7 @@ namespace ConvertMerge
         }
 
         private Dictionary<VariableInfo, string> variablePaths;
-        private void writeToFiles()
+        private void WriteToFiles()
         {
             variablePaths = new Dictionary<VariableInfo, string>();
             string tmp = Path.GetFullPath(Path.Combine(Path.GetTempPath(), "NewConverter"));

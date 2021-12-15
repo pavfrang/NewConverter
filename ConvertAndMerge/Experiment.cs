@@ -32,7 +32,7 @@ namespace ConvertMerge
             if (_parent.ReorderVariables 
                 && _parent.xmlVariables != null
                 && _parent.xmlVariables.Count>0)
-                base.reorderVariables(_parent.xmlVariables);
+                base.ReorderVariables(_parent.xmlVariables);
 
             base.Merge();
         }
