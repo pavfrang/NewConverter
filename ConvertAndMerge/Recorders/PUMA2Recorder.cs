@@ -99,7 +99,7 @@ namespace ConvertMerge
             get { return 6; }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }

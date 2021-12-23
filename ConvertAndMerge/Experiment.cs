@@ -81,7 +81,7 @@ namespace ConvertMerge
                 if (target == null)
                 {
                     int iExperiment = experiment.ParentNode.GetChildNodePosition(experiment, 1);
-                    exp.MergeFilePath = getMergeFilePathFromDate(exp, iExperiment);
+                    exp.MergeFilePath = GetMergeFilePathFromDate(exp, iExperiment);
                 }
             } //else look below after reading the recorders
 
@@ -122,7 +122,7 @@ namespace ConvertMerge
                 while (exp.MergeFilePath == null || File.Exists(exp.MergeFilePath))
                 {
 
-                    exp.MergeFilePath = getMergeFilePathFromDate(exp, iExperiment);
+                    exp.MergeFilePath = GetMergeFilePathFromDate(exp, iExperiment);
                     iExperiment++;
                 }
             }
@@ -131,7 +131,7 @@ namespace ConvertMerge
         }
 
         //called by readExperiment
-        private static string getMergeFilePathFromDate(Experiment exp, int iExperiment)
+        private static string GetMergeFilePathFromDate(Experiment exp, int iExperiment)
         {
             return Path.Combine(exp.SourceDirectory,
                 //string.Format("{0:yyyy-MM-dd}_{1}.txt", exp.MeasurementDate, iExperiment));

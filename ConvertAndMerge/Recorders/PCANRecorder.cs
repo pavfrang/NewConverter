@@ -29,7 +29,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             string line1 = StreamReaderExtensions.ReadLine(_sourceFilePath, 1);
             return line1.CharacterCount(',') > line1.CharacterCount(';') ? ',' : ';';
@@ -80,7 +80,7 @@ namespace ConvertMerge
             get { return 1; }
         }
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             foreach (VariableInfo<double> v in _variables)
             {

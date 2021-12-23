@@ -127,17 +127,17 @@ namespace ConvertMerge
             get { return 3; }
         }
 
-        protected override string preProcessLineBeforeSplit(string rawLine)
+        protected override string PreProcessLineBeforeSplit(string rawLine)
         {
             return rawLine.Replace("\"", "");
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return ';';
         }
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             foreach (VariableInfo<double> v in _variables)
             {

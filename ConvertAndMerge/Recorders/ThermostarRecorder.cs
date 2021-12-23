@@ -24,7 +24,7 @@ namespace ConvertMerge
             return firstLine.StartsWith("Sourcefile");//&& firstLine.EndsWith(".qmp");
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }

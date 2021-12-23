@@ -36,7 +36,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             //separator may be tab or ;
             string line5 = StreamReaderExtensions.ReadLine(_sourceFilePath, 5);
@@ -46,7 +46,7 @@ namespace ConvertMerge
         protected internal override void ReadStartingTime()
         {
             //ensure that the separator is read
-            _separator = readSeparator();
+            _separator = ReadSeparator();
 
             string line5 = StreamReaderExtensions.ReadLine(_sourceFilePath, 5);
             string line6 = StreamReaderExtensions.ReadLine(_sourceFilePath, 6);
@@ -112,7 +112,7 @@ namespace ConvertMerge
 
 
         int iTime = 0;
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             foreach (VariableInfo v in _variables)
             {

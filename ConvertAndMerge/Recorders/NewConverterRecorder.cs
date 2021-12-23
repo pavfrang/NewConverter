@@ -38,7 +38,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }
@@ -46,7 +46,7 @@ namespace ConvertMerge
         protected internal override void ReadStartingTime()
         {
             //force reading the separator
-            _separator = readSeparator();
+            _separator = ReadSeparator();
             string line1 = StreamReaderExtensions.ReadLine(_sourceFilePath, 1);
             //force read the time unit
             _sourceTimeUnit = line1.Split('\t')[0].GetVariableNameAndUnit('[', ']').Unit;

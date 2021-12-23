@@ -54,6 +54,7 @@ namespace ConvertMerge
         CANalyzerV2, //"canalyzer2"  14-Oct-2020
         HoribaPems2, //07-Oct-2021
         AVLPems2, //07-Oct-2021
+        ILS //23-Dec-2021
     }
 
     public enum ReadLineBehavior
@@ -230,7 +231,7 @@ namespace ConvertMerge
         //temp and should be probably removed
         public DateTime PeekStartingTime()
         {
-            _separator = readSeparator();
+            _separator = ReadSeparator();
 
             ReadStartingTime();
             return StartAbsoluteTime;
@@ -250,7 +251,7 @@ namespace ConvertMerge
         public string Postfix { get; set; }
         public string Prefix { get; set; }
 
-        protected abstract char readSeparator();
+        protected abstract char ReadSeparator();
 
         protected Dictionary<string, XmlVariable> xmlVariables;
 
@@ -260,20 +261,20 @@ namespace ConvertMerge
         {
             this.xmlVariables = xmlVariables;
 
-            _separator = readSeparator();
+            _separator = ReadSeparator();
 
             ReadVariableInfos();
 
-            setVariableParameters();
+            SetVariableParameters();
 
             ReadStartingTime();
 
-            loadDataFromSource();
+            LoadDataFromSource();
 
             forceSourceTimeStepOnError();
         }
 
-        private void setVariableParameters()
+        private void SetVariableParameters()
         {
             InterpolationMode defaultInterpolation = ExperimentManager.DefaultInterpolationMode;
 
@@ -310,7 +311,7 @@ namespace ConvertMerge
         protected Dictionary<VariableInfo, double> currentRelativeTimes;
 
         //called at the beginning by loadDataFromSource
-        protected virtual void initializeCurrentRelativeTimes()
+        protected virtual void InitializeCurrentRelativeTimes()
         {
             currentRelativeTimes = new Dictionary<VariableInfo, double>();
             foreach (VariableInfo v in _variables)
@@ -319,40 +320,40 @@ namespace ConvertMerge
 
         //the function should return TRUE if the current line should be omitted based on "cropstarttime"
         //if the function returns FALSE
-        protected virtual bool omitLinesBasedOnCropStartTime(string[] tokens, ref int iLine)
+        protected virtual bool OmitLinesBasedOnCropStartTime(string[] tokens, ref int iLine)
         {
             return false;
         }
 
 
-        private void loadDataFromSource()
+        private void LoadDataFromSource()
         {
-            initializeCurrentRelativeTimes();
+            InitializeCurrentRelativeTimes();
 
             using (StreamReader reader = new StreamReader(_sourceFilePath, Encoding.Default))
             {
                 reader.OmitLines(linesToOmitBeforeData);
 
                 int iLine = 0;
-                string line; string[] tokens=null;
+                string line; string[] tokens = null;
 
                 while (!reader.EndOfStream)
                 {
                     iLine++;
 
-                    line = preProcessLineBeforeSplit(reader.ReadLine());
+                    line = PreProcessLineBeforeSplit(reader.ReadLine());
                     tokens = line.Split(new char[] { _separator }, StringSplitOptions.None);
 
-                    if (!omitLinesBasedOnCropStartTime(tokens, ref iLine)) break;
+                    if (!OmitLinesBasedOnCropStartTime(tokens, ref iLine)) break;
                 }
 
 
                 while (!reader.EndOfStream)
                 {
-                    if (!loadDataFromLine(tokens, ref iLine)) break;
+                    if (!LoadDataFromLine(tokens, ref iLine)) break;
 
                     iLine++;
-                    line = preProcessLineBeforeSplit(reader.ReadLine());
+                    line = PreProcessLineBeforeSplit(reader.ReadLine());
                     tokens = line.Split(new char[] { _separator }, StringSplitOptions.None);
 
                 }
@@ -360,11 +361,11 @@ namespace ConvertMerge
         }
 
         //e.g. replace ';;' with ';' before splitting to tokens
-        protected virtual string preProcessLineBeforeSplit(string rawLine) { return rawLine; }
+        protected virtual string PreProcessLineBeforeSplit(string rawLine) { return rawLine; }
 
-        protected virtual bool loadDataFromLineBeforeTimeOffset(string[] tokens, ref int iLine)
+        protected virtual bool LoadDataFromLineBeforeTimeOffset(string[] tokens, ref int iLine)
         {
-   /////used in inca
+            /////used in inca
             //for (int itoken = 0; itoken < tokens.Length; itoken++) tokens[itoken] = tokens[itoken].Replace(',', '.');
 
             foreach (VariableInfo v in _variables)
@@ -414,9 +415,9 @@ namespace ConvertMerge
             return true;
         }
 
-        protected virtual bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected virtual bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
-            bool added = loadDataFromLineBeforeTimeOffset(tokens, ref iLine);
+            bool added = LoadDataFromLineBeforeTimeOffset(tokens, ref iLine);
             if (timeOffset == 0.0 || !added) return added;
 
             foreach (var v in Variables)
@@ -424,16 +425,19 @@ namespace ConvertMerge
                 if (v.GetType() == typeof(VariableInfo<double>))
                 {
                     var tl = (v as VariableInfo<double>).RelativeTimesInSecondsBeforeTimeStepChange;
+                    if (tl.Count == 0) continue;
                     tl[tl.Count - 1] += timeOffset;
                 }
                 else if (v.GetType() == typeof(VariableInfo<string>))
                 {
                     var tl = (v as VariableInfo<string>).RelativeTimesInSecondsBeforeTimeStepChange;
+                    if (tl.Count == 0) continue;
                     tl[tl.Count - 1] += timeOffset;
                 }
-                else if (v.GetType() ==typeof(VariableInfo<int>))
+                else if (v.GetType() == typeof(VariableInfo<int>))
                 {
                     var tl = (v as VariableInfo<int>).RelativeTimesInSecondsBeforeTimeStepChange;
+                    if (tl.Count == 0) continue;
                     tl[tl.Count - 1] += timeOffset;
                 }
 
@@ -529,6 +533,8 @@ namespace ConvertMerge
                 return RecorderFileType.HoribaPems2;
             else if (AVLPems2Recorder.IsAVLPems2Recorder(filePath))
                 return RecorderFileType.AVLPems2;
+            else if (IlsRecorder.IsIlsRecorder(filePath))
+                return RecorderFileType.ILS;
             else
                 return RecorderFileType.Unknown;
         }
@@ -603,6 +609,9 @@ namespace ConvertMerge
                     return new HoribaPems2Recorder(recorderPath);
                 case RecorderFileType.AVLPems2:
                     return new AVLPems2Recorder(recorderPath);
+                case RecorderFileType.ILS:
+                    return new IlsRecorder(recorderPath);
+
                 default:
                     return null;
             }
@@ -677,7 +686,7 @@ namespace ConvertMerge
             return false;
         }
 
-        public void CheckContinueFileRecord<T>() where T:Recorder,new()
+        public void CheckContinueFileRecord<T>() where T : Recorder, new()
         {
             //CORRECT THE STARTABSOLUTE TIME IF A CONTINUE FILE IS USED
             if (_xmlRecord?.HasAttribute("continueFile") ?? false)

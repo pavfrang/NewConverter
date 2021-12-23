@@ -39,7 +39,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return ';';
         }
@@ -47,7 +47,7 @@ namespace ConvertMerge
         protected internal override void ReadStartingTime()
         {
             //ensure that the separator is read
-            _separator = readSeparator();
+            _separator = ReadSeparator();
             _sourceTimeUnit = "ms";
 
             DateTime? startTime = _xmlRecord.GetAttributeOrElementDateTime("starttime", "HH:mm:ss");
@@ -120,7 +120,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override string preProcessLineBeforeSplit(string rawLine)
+        protected override string PreProcessLineBeforeSplit(string rawLine)
         {
             return rawLine.Replace(',','.');
         }

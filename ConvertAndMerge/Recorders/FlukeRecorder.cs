@@ -38,7 +38,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return ';';
         }
@@ -59,7 +59,7 @@ namespace ConvertMerge
             }
 
             //ensure that the separator is read
-            _separator = readSeparator();
+            _separator = ReadSeparator();
 
             string firstValueLine = StreamReaderExtensions.ReadLine(_sourceFilePath, 11);
             string[] tokens = firstValueLine.Split(_separator);
@@ -127,7 +127,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override string preProcessLineBeforeSplit(string rawLine)
+        protected override string PreProcessLineBeforeSplit(string rawLine)
         {
             if (rawLine.Contains("Logging Stopped"))
                 return "";
@@ -135,7 +135,7 @@ namespace ConvertMerge
                 return rawLine.Replace("  OL", "");
         }
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
 
             foreach (VariableInfo v in _variables)

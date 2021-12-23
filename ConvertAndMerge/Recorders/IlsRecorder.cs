@@ -1,27 +1,31 @@
-﻿using System;
+﻿using Paulus.Common;
+using Paulus.IO;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
-
-using System.Globalization;
-using Paulus.IO;
-using Paulus.Common;
-using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace ConvertMerge
 {
-    public class SemsRecorder : Recorder
+    public class IlsRecorder : Recorder
     {
-        public SemsRecorder() { }
-        public SemsRecorder(string sourcePath) : base(sourcePath) { }
+        public IlsRecorder() { }
 
-        public static bool IsSemsRecorder(string filePath)
+        public IlsRecorder(string sourcePath) : base(sourcePath) { }
+
+
+        public static bool IsIlsRecorder(string filePath)
         {
             try
             {
                 string line1 = StreamReaderExtensions.ReadLine(filePath, 1);
-                return line1.StartsWith("UTC,");
+
+                //return line1.StartsWith("Date,Time,Mean Conc. PCRF Corr.");
+                return line1.Contains("Time\";\"");
             }
             catch
             {
@@ -29,84 +33,98 @@ namespace ConvertMerge
             }
         }
 
-        protected override int linesToOmitBeforeData
-        {
-            get
-            {
-                return 2;
-            }
-        }
+        protected override int linesToOmitBeforeData => 1;
 
-        protected override char ReadSeparator()
-        {
-            return ',';
-        }
+        protected override char ReadSeparator() => ';';
 
-        DateTime originalStartTime;
 
-        const string DateTimeFormat = "yyMMddHHmmss";
+        private static string DateTimeFormat = "dd.MM.yy HH:mm:ss.fff";
 
         protected internal override void ReadStartingTime()
         {
-            //ensure that the separator is read
             _separator = ReadSeparator();
 
-            string line3 = StreamReaderExtensions.ReadLine(_sourceFilePath, 3);
-            string[] tokens = line3.Split(_separator);
-            string sDateTime = tokens[0];
             DateTime starttime;
-            //200831164036
-            bool parsedTime = DateTime.TryParseExact(sDateTime,DateTimeFormat, EN, System.Globalization.DateTimeStyles.AssumeUniversal, out starttime);
-            if (parsedTime)
-            {
-                originalStartTime = StartAbsoluteTime = starttime;
-            }
-            else
-                StartAbsoluteTime = new DateTime();
-
             if (_xmlRecord != null)
             {
                 DateTime? startTime = _xmlRecord.GetAttributeOrElementDateTime("starttime", "HH:mm:ss");
                 if (startTime.HasValue)
-                StartAbsoluteTime = startTime.Value;
+                {
+                    StartAbsoluteTime = startTime.Value;
+                    //the sDate variable needs to be retrieved first before going inside here
+                    goto SetMeasurementDate;
+                }
             }
-            CheckContinueFileRecord<SemsRecorder>();
 
+            string line = StreamReaderExtensions.ReadLine(_sourceFilePath, 2);
+
+            string[] tokens = line.Split(_separator);
+            string sDateTime = tokens.First();
+
+            bool parsedTime = DateTime.TryParseExact(sDateTime,
+                DateTimeFormat,
+                GR, System.Globalization.DateTimeStyles.AssumeLocal, out starttime);
+            if (parsedTime) originalStartTime = StartAbsoluteTime = starttime;
+            else
+                StartAbsoluteTime = new DateTime();
+            //string t = StartAbsoluteTime.ToString("dddd, dd MMMM yyyy  hh:mm:ss tt",GR);
+
+            CheckContinueFileRecord<IlsRecorder>();
+
+        SetMeasurementDate:
             if (MeasurementDate.HasValue)
                 StartAbsoluteTime = StartAbsoluteTime.SetDate(MeasurementDate.Value);
         }
 
+
         protected override void ReadVariableInfos()
         {
-            string[] names = StreamReaderExtensions.ReadLine(_sourceFilePath, 1).Split(_separator);
-            string[] units = StreamReaderExtensions.ReadLine(_sourceFilePath, 2).Split(_separator);
+            string[] variableAndUnits = StreamReaderExtensions.ReadLine(_sourceFilePath, 1).Split(_separator).
+                Select(v=>v.Trim('"').Replace(" ValueY","")).ToArray();
 
-            for (int i = 1; i < names.Length; i++)
+            int variablesCount = variableAndUnits.Length / 2;
+
+            //"01i2FIC01\GasBottle Time";"01i2FIC01\GasBottle ValueY";
+            //"C2H4 Rich Side Actual Concentration [x10E6 ppm] Time";"C2H4 Rich Side Actual Concentration [x10E6 ppm] ValueY";
+            for (int i = 0; i < variablesCount; i++)
             {
-                string name = names[i], unit = units[i].Substring(1,units[i].Length-2);
-
+                var vu = variableAndUnits[2*i+1].GetVariableNameAndUnit('[', ']');
+                //if (!vu.Name.Contains("Bottle")) Debugger.Break();
+                
                 VariableInfo v = new VariableInfo<double>()
                 {
-                    Name = Prefix + name + Postfix,
-                    ColumnInSourceFile = i,
-                    TimeColumn = 0,
-                    Unit = unit,
+                    Name = Prefix + vu.Name + Postfix,
+                    ColumnInSourceFile = 2*i+1,
+                    TimeColumn = 2*i,
+                    Unit = vu.Unit,
                     Recorder = this
                 };
 
                 _variables.Add(v);
             }
+
+           // Debugger.Break();
         }
+
+
+        protected override string PreProcessLineBeforeSplit(string rawLine)
+        {
+            //remove [m.] text
+            //m. i. u. are acceptable
+            return rawLine.Replace("[m.]", "").Replace("[i.]", "").Replace("[u.]", "");
+        }
+
 
         int iTime = 0;
         DateTime lastTime = DateTime.MinValue;
+        DateTime originalStartTime;
+
 
         protected override bool LoadDataFromLineBeforeTimeOffset(string[] tokens, ref int iLine)
         {
             foreach (VariableInfo v in _variables)
             {
                 DateTime absoluteTime;
-                //ASSUME SECONDS
 
                 if (v.TimeColumn > tokens.Length - 1 || v.ColumnInSourceFile > tokens.Length - 1) return false;
 
@@ -115,7 +133,7 @@ namespace ConvertMerge
                 if (!ForceTimeStep)
                 {
                     //bool parsed = double.TryParse(tokens[v.TimeColumn], out relativeTimeInSeconds);
-                    parsedTime = DateTime.TryParseExact(tokens[v.TimeColumn], DateTimeFormat, EN, DateTimeStyles.AssumeUniversal, out absoluteTime);
+                    parsedTime = DateTime.TryParseExact(tokens[v.TimeColumn], DateTimeFormat, EN, DateTimeStyles.AssumeLocal, out absoluteTime);
 
                     //the measurement date must be correctly set according to the user settings
                     if (MeasurementDate.HasValue)
@@ -126,21 +144,21 @@ namespace ConvertMerge
                         if ((absoluteTime - this.StartAbsoluteTime).TotalHours < -2)
                             absoluteTime = absoluteTime.AddDays(1.0);
                     }
-                    else
-                    {
-                        DateTime measurementDate;
-                        bool parsedDate = DateTime.TryParseExact(tokens[0], DateTimeFormat, EN, DateTimeStyles.AssumeUniversal, out measurementDate);
-                        if (parsedDate)
-                        {
-                            absoluteTime = absoluteTime.SetDate(measurementDate);
-                            absoluteTime = this.StartAbsoluteTime.Add(absoluteTime - originalStartTime);
-                        }
-                        else
-                            absoluteTime = absoluteTime.SetDate(File.GetLastWriteTime(_sourceFilePath).Date);
+                    //else
+                    //{
+                    //    DateTime measurementDate;
+                    //    bool parsedDate = DateTime.TryParseExact(tokens[0], DateTimeFormat, EN, DateTimeStyles.AssumeLocal, out measurementDate);
+                    //    if (parsedDate)
+                    //    {
+                    //        absoluteTime = absoluteTime.SetDate(measurementDate);
+                    //        absoluteTime = this.StartAbsoluteTime.Add(absoluteTime - originalStartTime);
+                    //    }
+                    //    else
+                    //        absoluteTime = absoluteTime.SetDate(File.GetLastWriteTime(_sourceFilePath).Date);
 
-                        //if ((absoluteTime - this.StartAbsoluteTime).TotalHours < 20)
-                        //    absoluteTime.SetDate(MeasurementDate.Value.AddDays(1));
-                    }
+                    //    //if ((absoluteTime - this.StartAbsoluteTime).TotalHours < 20)
+                    //    //    absoluteTime.SetDate(MeasurementDate.Value.AddDays(1));
+                    //}
 
                     //if (_sourceTimeUnit == "ms") relativeTimeInSeconds *= 0.001;
                     //absoluteTime = StartAbsoluteTime.AddSeconds(relativeTimeInSeconds);
@@ -178,6 +196,19 @@ namespace ConvertMerge
                         (v as VariableInfo<string>).RelativeTimesInSecondsBeforeTimeStepChange.Add(relativeTimeInSeconds);
                         (v as VariableInfo<string>).ValuesBeforeTimeStepChange.Add(tokens[v.ColumnInSourceFile]);
                     }
+                    else if (v.GetType() == typeof(VariableInfo<int>))
+                    {
+                        int value;
+                        parsedTime = int.TryParse(tokens[v.ColumnInSourceFile], NumberStyles.Any, EN, out value);
+
+                        //αποθηκεύουμε μόνο την πληροφορία που είναι απαραίτητη για το export
+                        //το absolute time δεν είναι απαραίτητο παρά μόνο στο τέλος ως extra μεταβλητή
+                        (v as VariableInfo<int>).RelativeTimesInSecondsBeforeTimeStepChange.Add(relativeTimeInSeconds);
+                        (v as VariableInfo<int>).ValuesBeforeTimeStepChange.Add(value);
+                    }
+
+
+                    else Debugger.Break();
                 }
             }
 
@@ -185,7 +216,6 @@ namespace ConvertMerge
 
             return true;
         }
+
     }
-
-
 }

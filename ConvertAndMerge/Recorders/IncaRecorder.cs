@@ -319,13 +319,13 @@ namespace ConvertMerge
             get { return 5; }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }
 
         char decimal_point;
-        protected override string preProcessLineBeforeSplit(string rawLine)
+        protected override string PreProcessLineBeforeSplit(string rawLine)
         {
             return rawLine.Replace(',', '.');
         }

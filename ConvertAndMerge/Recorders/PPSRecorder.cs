@@ -93,12 +93,12 @@ namespace ConvertMerge
             get { return 1; }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             if (tokens[0].StartsWith("end of data")) return false;
 

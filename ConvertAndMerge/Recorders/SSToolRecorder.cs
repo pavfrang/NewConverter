@@ -55,7 +55,7 @@ namespace ConvertMerge
             get { return 3; }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             //"Time,PID 0C
             string line = StreamReaderExtensions.ReadLine(_sourceFilePath, 1);
@@ -63,7 +63,7 @@ namespace ConvertMerge
             return line[4];
         }
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             //WATCH !! (happens)
             if (tokens.Length != _variables.Count + 1)

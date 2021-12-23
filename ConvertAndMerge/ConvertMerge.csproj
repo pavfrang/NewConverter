@@ -93,6 +93,7 @@
     <Compile Include="Recorders\AVLPems2Recorder.cs" />
     <Compile Include="Recorders\HoribaPems2Recorder.cs" />
     <Compile Include="Recorders\CANRecorderV2.cs" />
+    <Compile Include="Recorders\IlsRecorder.cs" />
     <Compile Include="Recorders\SemsRecorder.cs" />
     <Compile Include="Recorders\AVLIndicomRecorder.cs" />
     <Compile Include="Recorders\AVLPemsRecorder.cs" />

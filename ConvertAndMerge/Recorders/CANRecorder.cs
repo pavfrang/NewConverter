@@ -301,7 +301,7 @@ namespace ConvertMerge
             get { return 1; }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             string line1 = StreamReaderExtensions.ReadLine(this.SourceFilePath, 1);
             if (line1.StartsWith("Time [10 us]"))
@@ -310,7 +310,7 @@ namespace ConvertMerge
             return ';';
         }
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             if (_separator == ';')
             {

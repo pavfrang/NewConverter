@@ -104,6 +104,7 @@ namespace ConvertMerge
                 updateContinuedFiles<PUMARecorder>(exp);
                 updateContinuedFiles<SemsRecorder>(exp);
                 updateContinuedFiles<EEPSRecorder>(exp);
+                updateContinuedFiles<IlsRecorder>(exp);
 
                 //------------------------------
             }

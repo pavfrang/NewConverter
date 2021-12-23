@@ -34,7 +34,7 @@ namespace ConvertMerge
         {
             //measurement_data_20200714154309.csv
             //ensure that the separator is read
-            _separator = readSeparator();
+            _separator = ReadSeparator();
 
             DateTime? startTime = _xmlRecord?.GetAttributeOrElementDateTime("starttime", "HH:mm:ss");
             if (_xmlRecord != null && startTime.HasValue)
@@ -106,7 +106,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator() => ',';
+        protected override char ReadSeparator() => ',';
 
 
     }

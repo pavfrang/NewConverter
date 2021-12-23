@@ -38,7 +38,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }
@@ -49,7 +49,7 @@ namespace ConvertMerge
         protected internal override void ReadStartingTime()
         {
             //ensure that the separator is read
-            _separator = readSeparator();
+            _separator = ReadSeparator();
 
             //else retrieve the start time from the file
             string line2 = StreamReaderExtensions.ReadLine(_sourceFilePath, 2);
@@ -113,7 +113,7 @@ namespace ConvertMerge
 
         DateTime startLocalTime; //without starttime modification
 
-        protected override bool omitLinesBasedOnCropStartTime(string[] tokens, ref int iLine)
+        protected override bool OmitLinesBasedOnCropStartTime(string[] tokens, ref int iLine)
         {
             if (!cropStartTime.HasValue) return false;
 
@@ -141,7 +141,7 @@ namespace ConvertMerge
         }
 
         int iTime = 0;
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             DateTime absoluteTime = DateTime.Now; //force setting a value here for the last return statement
             foreach (VariableInfo v in _variables)

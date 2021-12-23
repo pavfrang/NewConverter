@@ -66,7 +66,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return ',';
         }
@@ -93,7 +93,7 @@ namespace ConvertMerge
 
         private DateTime startDateTimeInFile;
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
             foreach (VariableInfo<double> v in _variables)
             {

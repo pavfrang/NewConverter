@@ -141,14 +141,14 @@ namespace ConvertMerge
             get { return 2; }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }
 
-        protected override bool loadDataFromLine(string[] tokens, ref int iLine)
+        protected override bool LoadDataFromLine(string[] tokens, ref int iLine)
         {
-            return base.loadDataFromLine(tokens, ref iLine);
+            return base.LoadDataFromLine(tokens, ref iLine);
         }
 
 

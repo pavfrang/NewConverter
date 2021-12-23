@@ -37,7 +37,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             return '\t';
         }
@@ -45,7 +45,7 @@ namespace ConvertMerge
         protected internal override void ReadStartingTime()
         {
             //force reading the separator
-            _separator = readSeparator();
+            _separator = ReadSeparator();
             _sourceTimeUnit = "s";
 
             DateTime starttime;

@@ -43,7 +43,7 @@ namespace ConvertMerge
             }
         }
 
-        protected override char readSeparator()
+        protected override char ReadSeparator()
         {
             string line3 = StreamReaderExtensions.ReadLine(_sourceFilePath, 3);
             if (line3.CharacterCount('\t') > line3.CharacterCount(','))
@@ -54,7 +54,7 @@ namespace ConvertMerge
         protected internal override void ReadStartingTime()
         {
             //force reading the separator
-            _separator = readSeparator();
+            _separator = ReadSeparator();
 
             string line = StreamReaderExtensions.ReadLine(_sourceFilePath, linesToOmitBeforeData + 1);
 
