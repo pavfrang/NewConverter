@@ -167,6 +167,9 @@ namespace ConvertMerge
             {
                 if (omitNonExportedExperiments && !exp.ShouldSaveToFile) continue;
 
+                if (!exp.ExportToExcel) continue;
+               // if (exp.Recorders.Any(r => r is IlsRecorder)) continue;
+
                 Console.WriteLine("Saving excel file {0}...", Path.GetFileName(exp.XlsFilePath));
                 exp.SaveToExcelFile();
             }

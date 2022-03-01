@@ -549,7 +549,7 @@ namespace ConvertMerge
             Excel.Range aLast = a1.End[Excel.XlDirection.xlToRight]; d.Enqueue(aLast);
             Excel.Range a = sh.Range[a1, aLast]; d.Enqueue(a);
             foreach(Excel.Range c in a)
-                c.Value = ((string)c.Value).Replace("Β", "");
+                c.Value = ((string)c.Value).Replace("Β", "").Replace("Â","");
 
             sh.Name = "synced";
 

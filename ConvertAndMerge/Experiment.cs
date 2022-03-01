@@ -37,6 +37,8 @@ namespace ConvertMerge
             base.Merge();
         }
 
+        public bool ExportToExcel { get; set; }
+
         public static Experiment CreateFromXML(XmlElement experiment, ExperimentManager em)
         {
             Experiment exp = new Experiment();
@@ -71,6 +73,9 @@ namespace ConvertMerge
             //the target is combined with the source_directory if it is relative
             string target = XmlExtensions.GetAttributeOrElementText(experiment, "target");
             if (target != null) exp.MergeFilePath =PathExtensions.IsPathAbsolute(target) ? target : Path.GetFullPath(Path.Combine(exp.SourceDirectory, target));
+
+            exp.ExportToExcel = experiment.GetAttributeOrElementBool("excel_export")??true; 
+
 
             //set the date
             DateTime? date = experiment.GetAttributeOrElementDateTime("date", new string[] { "dd-MM-yyyy", "yyyy-MM-dd" });

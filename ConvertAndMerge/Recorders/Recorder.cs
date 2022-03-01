@@ -54,7 +54,8 @@ namespace ConvertMerge
         CANalyzerV2, //"canalyzer2"  14-Oct-2020
         HoribaPems2, //07-Oct-2021
         AVLPems2, //07-Oct-2021
-        ILS //23-Dec-2021
+        ILS, //23-Dec-2021
+        Concerto2 //22-02-2022 (format of post-processing Concerto)
     }
 
     public enum ReadLineBehavior
@@ -535,7 +536,10 @@ namespace ConvertMerge
                 return RecorderFileType.AVLPems2;
             else if (IlsRecorder.IsIlsRecorder(filePath))
                 return RecorderFileType.ILS;
+            else if (Concerto2Recorder.IsConcerto2Recorder(filePath))
+                return RecorderFileType.Concerto2;
             else
+
                 return RecorderFileType.Unknown;
         }
 
@@ -611,6 +615,8 @@ namespace ConvertMerge
                     return new AVLPems2Recorder(recorderPath);
                 case RecorderFileType.ILS:
                     return new IlsRecorder(recorderPath);
+                case RecorderFileType.Concerto2:
+                    return new Concerto2Recorder(recorderPath);
 
                 default:
                     return null;
@@ -686,7 +692,7 @@ namespace ConvertMerge
             return false;
         }
 
-        public void CheckContinueFileRecord<T>() where T : Recorder, new()
+        public bool CheckContinueFileRecord<T>(bool referenceIsRelativeTime=true) where T : Recorder, new()
         {
             //CORRECT THE STARTABSOLUTE TIME IF A CONTINUE FILE IS USED
             if (_xmlRecord?.HasAttribute("continueFile") ?? false)
@@ -699,9 +705,22 @@ namespace ConvertMerge
 
                 firstRecorder.ReadStartingTime();
                 DateTime oldStartAbsoluteTime = firstRecorder.StartAbsoluteTime;
-                timeOffset = (StartAbsoluteTime.SetDate(oldStartAbsoluteTime) - oldStartAbsoluteTime).TotalSeconds;
+
+                //this is needed ONLY in cases where the RELATIVE TIME IS USED!
+                if (referenceIsRelativeTime)
+                    timeOffset = (StartAbsoluteTime.SetDate(oldStartAbsoluteTime) - oldStartAbsoluteTime).TotalSeconds;
+
+                // //watch because it could be the next day (after 12:00 am) -in that case the SetDate adds a day
+                // if(timeOffset<0)
+                // {
+                ////     Debugger.Break();
+                //     timeOffset += 3600 * 24; 
+                // }
+
                 StartAbsoluteTime = oldStartAbsoluteTime;
+                return true;
             }
+            return false;
         }
     }
 }

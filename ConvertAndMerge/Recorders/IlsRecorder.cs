@@ -42,6 +42,8 @@ namespace ConvertMerge
 
         protected internal override void ReadStartingTime()
         {
+            //if (_sourceFilePath.Contains("R5_1_2Hz.csv")) Debugger.Break();
+
             _separator = ReadSeparator();
 
             DateTime starttime;
@@ -52,7 +54,7 @@ namespace ConvertMerge
                 {
                     StartAbsoluteTime = startTime.Value;
                     //the sDate variable needs to be retrieved first before going inside here
-                    goto SetMeasurementDate;
+                    goto CheckForContinueFile;
                 }
             }
 
@@ -68,10 +70,11 @@ namespace ConvertMerge
             else
                 StartAbsoluteTime = new DateTime();
             //string t = StartAbsoluteTime.ToString("dddd, dd MMMM yyyy  hh:mm:ss tt",GR);
+            CheckForContinueFile:
 
-            CheckContinueFileRecord<IlsRecorder>();
+            bool hasContinueFile = CheckContinueFileRecord<IlsRecorder>(false);
+            if (hasContinueFile) return; //the MeasurementDate is ignored
 
-        SetMeasurementDate:
             if (MeasurementDate.HasValue)
                 StartAbsoluteTime = StartAbsoluteTime.SetDate(MeasurementDate.Value);
         }
@@ -80,7 +83,7 @@ namespace ConvertMerge
         protected override void ReadVariableInfos()
         {
             string[] variableAndUnits = StreamReaderExtensions.ReadLine(_sourceFilePath, 1).Split(_separator).
-                Select(v=>v.Trim('"').Replace(" ValueY","")).ToArray();
+                Select(v => v.Trim('"').Replace(" ValueY", "")).ToArray();
 
             int variablesCount = variableAndUnits.Length / 2;
 
@@ -88,14 +91,17 @@ namespace ConvertMerge
             //"C2H4 Rich Side Actual Concentration [x10E6 ppm] Time";"C2H4 Rich Side Actual Concentration [x10E6 ppm] ValueY";
             for (int i = 0; i < variablesCount; i++)
             {
-                var vu = variableAndUnits[2*i+1].GetVariableNameAndUnit('[', ']');
-                //if (!vu.Name.Contains("Bottle")) Debugger.Break();
-                
+                var vu = variableAndUnits[2 * i + 1].GetVariableNameAndUnit('[', ']');
+                //if (!vu.Name.Contains("Bottle")) Debugger.Break
+
+                //replace degrees symbol
+                vu.Unit = vu.Unit.Replace("°", "");
+
                 VariableInfo v = new VariableInfo<double>()
                 {
                     Name = Prefix + vu.Name + Postfix,
-                    ColumnInSourceFile = 2*i+1,
-                    TimeColumn = 2*i,
+                    ColumnInSourceFile = 2 * i + 1,
+                    TimeColumn = 2 * i,
                     Unit = vu.Unit,
                     Recorder = this
                 };
@@ -103,7 +109,7 @@ namespace ConvertMerge
                 _variables.Add(v);
             }
 
-           // Debugger.Break();
+            // Debugger.Break();
         }
 
 
@@ -111,7 +117,7 @@ namespace ConvertMerge
         {
             //remove [m.] text
             //m. i. u. are acceptable
-            return rawLine.Replace("[m.]", "").Replace("[i.]", "").Replace("[u.]", "");
+            return rawLine.Replace("[m.]", "").Replace("[i.]", "").Replace("[u.]", "").Replace(",", ".");
         }
 
 

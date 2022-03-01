@@ -91,6 +91,7 @@
     <Compile Include="Interpolator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recorders\AVLPems2Recorder.cs" />
+    <Compile Include="Recorders\Concerto2Recorder.cs" />
     <Compile Include="Recorders\HoribaPems2Recorder.cs" />
     <Compile Include="Recorders\CANRecorderV2.cs" />
     <Compile Include="Recorders\IlsRecorder.cs" />
